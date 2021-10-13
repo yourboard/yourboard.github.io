@@ -9,12 +9,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="manifest" href="assets/site.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <nav>
+    <nav class="noselect">
         <div class="logo">My Dashboard</div>
         <input type="checkbox" id="click">
         <label for="click" class="menu-btn">
@@ -29,8 +28,15 @@
         </ul>
     </nav>
     <div class="content">
-        <div>This Webpage is Owned by Siddhesh Patil and is under development for Project.</div>
+
     </div>
+    <div class="noselect" id="newBtnArea">
+        <label for="newBtnId" class="labelForNewBtn">Hi, User Click Here for New Tab</label>
+        <button type="button" class="newBtn" id="newBtnId">New Card</button>
+    </div>
+
+
+
 
 </body>
 
