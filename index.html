@@ -31,10 +31,19 @@
 
     </div>
     <div class="noselect" id="newBtnArea">
-        <span for="newBtnId" class="labelForNewBtn">Hey User, Click Here to create new card.</span>
-        <button type="button" class="newBtn" id="newCowinTracker">Vaccine Tracker</button>
-        <button class="newBtn" id="newStockTracker">Stock Tracker</button>
-        <button class="newBtn" id="spotifyPlayer">Spotify Player</button>
+        <span class="labelForNewBtn">Hey User, Click Here to create new card.</span>
+        <div class="select-style" style="width:200px;">
+            <select class="inside-saga">
+                <option value="0">Select Your New card</option>
+                <option value="cowinTracker">Cowin Tracker</option>
+                <option value="stockTracker">Stock Price Tracker</option>
+                <option value="notes">Notes</option>
+                <option value="calendar">Calendar</option>
+                <option value="spotify">Spotify Controller</option>
+            </select>
+
+        </div>
+        <button class="newBtn">Create New Card</button>
 
     </div>
 
