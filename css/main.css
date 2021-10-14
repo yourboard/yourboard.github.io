@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* navigation area ___--------start---------  */
 *{
   margin: 0;
   padding: 0;
@@ -98,18 +100,125 @@ input[type="checkbox"]{
     color: cyan;
   }
 }
-.content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* navigation area ___--------end---------  */
+
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* new plus area button ___--------Start--------- */
+#newBtnArea{
+  padding-top: 12px;
+  padding-left: 12px;
+  padding-bottom: 12px;
+  background-color: rgb(247, 108, 108);
+  font-size: x-large;
+  display: flex;
+  flex-direction: row;
   text-align: center;
-  z-index: -1;
-  width: 100%;
-  padding: 0 30px;
-  color: #1b1b1b;
 }
-.content div{
-  font-size: 40px;
-  font-weight: 700;
+.labelForNewBtn{
+  margin-right: 15px;
+  margin-top: 6px;
+  text-align: center;
 }
+/* new plus area button ___--------end---------  */
+
+
+/* Dropdown card seleccrtion ---------------------------------------------------------------------------------------------start ---------- */
+.select-style {
+  border: 1px solid #ccc;
+  width: 120px;
+  text-align: center;
+  text-overflow: row;
+  font-weight: 500;
+  border-radius: 5px;
+  box-shadow:     1px      5px      5px       rgb(46, 45, 45);
+  overflow: hidden;
+  background: #ffffff url("img/icon-select.png") no-repeat 90% 50%;
+}
+
+.inside-saga{
+  text-align: left;
+  font-weight: 500;
+  /* text-align: center; */
+  font-size: medium;
+}
+.select-style select {
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  font-weight: 500;
+}
+
+.select-style select:focus {
+  outline: none;
+}
+/* Dropdown card selection -----------endd--------------------------------------------------------------------------------- */
+
+
+
+/* Disable new button ___--------Start--------- */
+
+/* Disable new button ___--------end---------  */
+
+
+
+
+/*  new plus button ___--------Start--------- */
+.newBtn{
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    padding-top: 5px;
+    border-right-width: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 10px;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow:     1px      5px      5px       rgb(46, 45, 45);
+    font-size: medium;
+    /* margin:auto; */
+    /* font-size: px; */
+}
+/* new plus button ___--------end---------  */
+
+
+
+/* Personal Dashboard message-----------------------start------------------ */
+.heading{
+  align-items: center;
+  text-align: center;
+  font-size: xx-large;
+  margin-top: 5px;
+  background-color: cornsilk;
+}
+/* Personal Dashboard message-----------------------end------------------ */
+
+
+
+
+/* Main Playground Design ------------------------------------start---------------------- */
+.playground{
+  background-color: red;
+  margin: 2%;
+  display: flex;
+  flex-direction: row;
+}
+/* Main Playground Design ------------------------------------end------------------------- */
