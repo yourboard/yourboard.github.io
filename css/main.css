@@ -141,6 +141,7 @@ input[type="checkbox"]{
   text-overflow: row;
   font-weight: 500;
   border-radius: 5px;
+  box-shadow:     1px      5px      5px       rgb(46, 45, 45);
   overflow: hidden;
   background: #ffffff url("img/icon-select.png") no-repeat 90% 50%;
 }
@@ -191,6 +192,7 @@ input[type="checkbox"]{
     margin-left: 10px;
     border-radius: 12px;
     font-weight: 500;
+    box-shadow:     1px      5px      5px       rgb(46, 45, 45);
     font-size: medium;
     /* margin:auto; */
     /* font-size: px; */
