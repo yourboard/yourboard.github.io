@@ -196,3 +196,15 @@ input[type="checkbox"]{
     /* font-size: px; */
 }
 /* new plus button ___--------end---------  */
+
+
+
+/* Personal Dashboard message-----------------------start------------------ */
+.heading{
+  align-items: center;
+  text-align: center;
+  font-size: xx-large;
+  margin-top: 5px;
+  background-color: cornsilk;
+}
+/* Personal Dashboard message-----------------------end------------------ */
