@@ -59,9 +59,9 @@ function setupCowinCard(i) {
 <br><br></div>`;
 
     //test
-    let script1 = document.createElement('script');
-    script1.innerHTML = `console.log('bhosda')`
-    document.head.appendChild(script1);
+    // let script1 = document.createElement('script');
+    // script1.innerHTML = `console.log('bhosda')`
+    // document.head.appendChild(script1);
     //test
     // let newScript = document.createElement('script');
     // newScript.innerHTML = `console.log(${i} I am here Do not worry)`
@@ -71,6 +71,21 @@ function setupCowinCard(i) {
 
 function setupNotesCardTextArea(i) {
     console.log(`I created New Notes Card ${i}`);
+    let script1 = document.createElement('script');
+    // add event listener script here
+    document.head.appendChild(script1);
+    document.getElementById(`card${i}`).innerHTML = `<h3 style="text-align: center;">Notes</h3>
+    <br>
+    <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}"></textarea>`
+    let fool = `textarea${i}`;
+    // let foo = '${fool}'
+
+    // script1.innerHTML = 
+    script1.innerHTML = `let textarea${i} = document.getElementById('notesCardInput${i}');
+    document.getElementById('notesCardInput${i}').addEventListener('input', function getText() {
+        localStorage.setItem('notesCardInput${i}', document.getElementById(this.id).value);
+    });`;
+    document.head.appendChild(script1);
 }
 
 
@@ -106,7 +121,9 @@ function createNewCard() {
 
 
 
-// -------------------load up schedule-----------------------
+// -------------------load up schedule start-----------------------
+
+// -------------------load up schedule end-----------------------
 
 
 
