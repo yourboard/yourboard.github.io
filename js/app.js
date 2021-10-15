@@ -1,12 +1,4 @@
-// ------------Global Intiator start------------------
-
-//--------------end-------------------------
-
-
-
 // scanVaccineByPin returns bool if it found vaccine
-
-
 function scanVaccineByPin(pincode, date) {       //date = dd-mm-yyyy
     let url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`
     let r = new XMLHttpRequest();
@@ -94,29 +86,6 @@ function setupNotesCardTextArea(i) {
         localStorage.setItem('notesCardInput${i}', document.getElementById(this.id).value);
     });`;
     document.head.appendChild(script1);
-    let myArr = JSON.parse(localStorage.getItem('noteCardSerialArray'));
-    myArr.push(i);
-    localStorage.setItem('noteCardSerialArray', JSON.stringify(myArr));
-}
-
-function setupNotesCardTextAreaSpecial(i) {
-    console.log(`I created New Notes Card ${i}`);
-    let script1 = document.createElement('script');
-    // add event listener script here
-    document.head.appendChild(script1);
-    document.getElementById(`card${i}`).innerHTML = `<h3 style="text-align: center;">Notes</h3>
-    <br>
-    <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}"></textarea>`
-    let fool = `textarea${i}`;
-    // let foo = '${fool}'
-
-    // script1.innerHTML = 
-    script1.innerHTML = `let textarea${i} = document.getElementById('notesCardInput${i}');
-    document.getElementById('notesCardInput${i}').addEventListener('input', function getText() {
-        localStorage.setItem('notesCardInput${i}', document.getElementById(this.id).value);
-    });`;
-    document.head.appendChild(script1);
-
 }
 
 
@@ -141,26 +110,7 @@ function createNewCard() {
     }// add other invokes in elif
     i = i + 1;
     localStorage.setItem('cardSerial', i)//new
-}
-function createNewCardSpecial(i, choice) {
-    if (localStorage.getItem('cardSerial') === null) {//new
-        localStorage.setItem('cardSerial', '0')//new
-    }//new
-    let elem = document.createElement('div');
-    elem.setAttribute('class', 'cardLayout');
-    // let i = parseInt(localStorage.getItem('cardSerial'));
-    elem.setAttribute(`id`, `card${i}`);      // new
-    document.querySelector('div.playground').appendChild(elem);
-    // new
-    // let choice = document.getElementById('userCardOption').value;
-    if (choice === 'cowinTracker') {
-        setupCowinCard(i);
-    }
-    else if (choice === 'notes') {
-        setupNotesCardTextAreaSpecial(i);
-    }// add other invokes in elif
-    i = i + 1;
-    localStorage.setItem('cardSerial', i)//new
+
 }
 
 
@@ -172,17 +122,6 @@ function createNewCardSpecial(i, choice) {
 
 
 // -------------------load up schedule start-----------------------
-//retrive notes flow start
-if (localStorage.getItem('noteCardSerialArray') === null) {
-    let temp = [];
-    localStorage.setItem('noteCardSerialArray', JSON.stringify(temp));
-} else {
-    let pagal = JSON.parse(localStorage.getItem('noteCardSerialArray'));
-    for (let ullu = 0; ullu < pagal.length; ullu++) {
-        createNewCardSpecial(ullu[0], 'notes');
-    }
-}
-//retrive notes flow end
 
 // -------------------load up schedule end-----------------------
 
