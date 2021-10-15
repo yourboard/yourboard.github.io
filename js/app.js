@@ -11,27 +11,45 @@ function scanVaccineByPin(pincode, date) {       //date = dd-mm-yyyy
             var session = vaccData.sessions[i];
             if (session.fee_type == 'Free') {
                 window.open('https://selfregistration.cowin.gov.in/');
-                return true
+                return false
             }
             else {
-                return false
+                return true
             }
         }
     }
 }
 
+
+
+
 function startCowinTracker(i) {
-    console.log(i);
-    console.log('i am alive');
+    let p = document.getElementById(`pincode${i}`);
+    let d = document.getElementById(`cowinDate${i}`); //yyyy-mm-dd
+    let killSwitch = document.getElementById(`killSwitch${i}`)
+    let pincode = p.value;
+    let date = d.value;
+    let dd = date.slice(8, 10);
+    let mm = date.slice(5, 7);
+    let yyyy = date.slice(0, 4);
+    date = dd + '-' + mm + '-' + yyyy; // date = dd-mm-yyyy now
+
+    console.log(pincode);
+    console.log(date);
+    // let killer = true;
+    // do {
+    //     setTimeout(() => { console.log('trial'); killer = scanVaccineByPin(pincode, date) }, 3000);
+    // } while (killer)
 }
 function setupCowinCard(i) {
     // let mainArea = document.getElementById('mainArea');
     // let elem = document.createElement('div');
     document.getElementById(`card${i}`).innerHTML = `<div class="cowinh3">
     <h3>Cowin Tracker</h3><br>
-<div class="pincode" id="pincode${i}">
+<div class="pincode" id="">
     <label for="">Enter pincode - </label>
-    <input type="number" id="pincode${i}" class="pincodeAccept" maxlength="6">
+    <input type="text" id="pincode${i}" class="pincodeAccept" maxlength="6">
+    <button id="setPicode">Set</button>
 </div><br>
 <div class="date1">
     <label>Select Date - </label>

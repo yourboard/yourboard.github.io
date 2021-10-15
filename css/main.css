@@ -273,7 +273,7 @@ input[type="checkbox"]{
   text-align: center;
 }
 .pincodeAccept{
-  width: 120px;
+  width: 70px;
   text-align: center;
 }
 .searchBtnCowin{
@@ -297,3 +297,10 @@ input[type="checkbox"]{
 }
 
 /* Cowin Card design ------------------------------------end------------------------- */
+
+
+
+
+/* Notes Card Design===--------------------start--------------------- */
+.notesCard
+/* Notes Card Design===--------------------end--------------------- */
