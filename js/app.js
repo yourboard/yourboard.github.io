@@ -57,8 +57,25 @@ function setupCowinCard(i) {
 
 </div>
 <br><br></div>`;
-    // document.querySelector(`div#cowinCard${i}`).appendChild(elem);  cowinTrackBtn9
+
+    //test
+    let script1 = document.createElement('script');
+    script1.innerHTML = `console.log('bhosda')`
+    document.head.appendChild(script1);
+    //test
+    // let newScript = document.createElement('script');
+    // newScript.innerHTML = `console.log(${i} I am here Do not worry)`
+    // document.getElementsByTagName('body').appendChild(newScript);
 }
+
+
+function setupNotesCardTextArea(i) {
+    console.log(`I created New Notes Card ${i}`);
+}
+
+
+
+
 function createNewCard() {
     if (localStorage.getItem('cardSerial') === null) {//new
         localStorage.setItem('cardSerial', '0')//new
@@ -74,7 +91,7 @@ function createNewCard() {
         setupCowinCard(i);
     }
     else if (choice === 'notes') {
-        console.log('I created New Notes Card')
+        setupNotesCardTextArea(i);
     }// add other invokes in elif
     i = i + 1;
     localStorage.setItem('cardSerial', i)//new
@@ -89,7 +106,7 @@ function createNewCard() {
 
 
 
-
+// -------------------load up schedule-----------------------
 
 
 
@@ -111,6 +128,7 @@ document.getElementById('newCardBtn').addEventListener('click', function () {
     let btnId = this.id;
     createNewCard(btnId);
 });
+
 
 
 // let textarea = document.getElementById('notesCardInput');
