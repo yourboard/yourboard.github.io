@@ -34,12 +34,9 @@ function startCowinTracker(i) {
     let yyyy = date.slice(0, 4);
     date = dd + '-' + mm + '-' + yyyy; // date = dd-mm-yyyy now
 
-    console.log(pincode);
-    console.log(date);
-    // let killer = true;
-    // do {
-    //     setTimeout(() => { console.log('trial'); killer = scanVaccineByPin(pincode, date) }, 3000);
-    // } while (killer)
+    // console.log(pincode);
+    // console.log(date);
+
 }
 function setupCowinCard(i) {
     // let mainArea = document.getElementById('mainArea');
@@ -72,9 +69,12 @@ function createNewCard() {
     elem.setAttribute(`id`, `card${i}`);      // new
     document.querySelector('div.playground').appendChild(elem);
     // new
-
-    if (document.getElementById('userCardOption').value === 'cowinTracker') {
+    let choice = document.getElementById('userCardOption').value;
+    if (choice === 'cowinTracker') {
         setupCowinCard(i);
+    }
+    else if (choice === 'notes') {
+        console.log('I created New Notes Card')
     }// add other invokes in elif
     i = i + 1;
     localStorage.setItem('cardSerial', i)//new
@@ -94,11 +94,30 @@ function createNewCard() {
 
 
 
-// -------------Event Listeners----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------Event Listeners----------------------------------------
 document.getElementById('newCardBtn').addEventListener('click', function () {
     let btnId = this.id;
     createNewCard(btnId);
 });
+
+
+// let textarea = document.getElementById('notesCardInput');
+// textarea.addEventListener('input', function getText() {
+//     localStorage.setItem('notesCardInput', `${textarea.value}`);
+// });
+
 
 // document.getElementById().addEventListener('click', function () {
 //     let idSerial = (this.id);

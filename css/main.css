@@ -256,6 +256,7 @@ input[type="checkbox"]{
   0 22.3px 17.9px rgba(0, 0, 0, 0.072),
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
+  /* resize: var(#111); */
   padding: 10px;
   /* text-align: justify; */
 }
@@ -302,5 +303,19 @@ input[type="checkbox"]{
 
 
 /* Notes Card Design===--------------------start--------------------- */
-.notesCard
+.notesCard{
+}
+.notesClass{
+  resize: none;
+  /* text-align: justify; */
+  outline: none;
+  /* text-align: justify; */
+  text-overflow: clip;
+  width: 90%;
+  margin-left: 10px;
+  height: 80%;
+  border: 1px solid #888;
+  border-radius: 5px;
+  padding: 7px;
+}
 /* Notes Card Design===--------------------end--------------------- */
