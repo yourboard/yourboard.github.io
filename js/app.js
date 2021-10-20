@@ -1,4 +1,5 @@
 // scanVaccineByPin returns bool if it found vaccine
+
 function scanVaccineByPin(pincode, date) {
   //date = dd-mm-yyyy
   let url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`;
@@ -19,6 +20,9 @@ function scanVaccineByPin(pincode, date) {
     }
   };
 }
+
+
+
 
 function startCowinTracker(i) {
   let p = document.getElementById(`pincode${i}`);
@@ -64,8 +68,35 @@ function setupCowinCard(i) {
   // document.getElementsByTagName('body').appendChild(newScript);
 }
 
+
+// let haoe = {hell: 'hihih', hello:'siddhesh'};
+// for (let hellloop in haoe){
+//   console.log(`${hellloop}, ${haoe[hellloop]}`);
+// }
+
+function retriveNotes(){
+  if (localStorage.getItem('notesSerial') != null){
+    let hellFucking = JSON.parse(localStorage.getItem("notesSerial"));
+    for (let killerSid = 0; killerSid < hellFucking.length; killerSid++){
+      if (hellFucking[killerSid] == 'name'){
+        continue
+      }
+      
+    }
+  }
+}
+
+
+// {
+//   let obj = {notes:[{"name": "Collection of Notes"}, {"name": "sid"}, {"name":"world"}]};
+//   for (let i = 0; i < obj.notes.length; i++){
+//       let see = obj.notes[i];
+//       console.log(see.name)
+//   }
+// }
+
 function setupNotesCardTextArea(i) {
-  console.log(`I created New Notes Card ${i}`);
+  {console.log(`I created New Notes Card ${i}`);
   let script1 = document.createElement("script");
   // add event listener script here
   document.head.appendChild(script1);
@@ -76,13 +107,33 @@ function setupNotesCardTextArea(i) {
     <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}"></textarea>`;
   let fool = `textarea${i}`;
   // let foo = '${fool}'
-
   // script1.innerHTML =
+
   script1.innerHTML = `let textarea${i} = document.getElementById('notesCardInput${i}');
     document.getElementById('notesCardInput${i}').addEventListener('input', function getText() {
-        localStorage.setItem('notesCardInput${i}', document.getElementById(this.id).value);
+        let objFuck = JSON.parse(localStorage.getItem('notesSerial'));
+        let hell1770 = document.getElementById(this.id).value;
+        let ulluBanaya = false;
+        for (let jhalak = 0; jhalak < objFuck.notes.length; jhalak++){
+          let jhalakDikhlaja = objFuck.notes[jhalak];
+          if (jhalakDikhlaja.id == ${i}){
+            ulluBanaya = true;
+          }
+        }
+        if (!ulluBanaya){
+          objFuck["notes"].push({"id":${i},notesSerial${i}:"","content":""})
+        }
+        for (let akad = 0; akad< objFuck.notes.length; akad++){
+          let akadDikha = objFuck.notes[akad];
+          if (akadDikha.id == ${i}){
+            objFuck.notes[akad].content = hell1770;
+          }
+        }
+        objFuck.notes.notesSerial${i} = hell1770;
+        localStorage.setItem('notesSerial', JSON.stringify(objFuck));
+        // localStorage.setItem('notesCardInput${i}', document.getElementById(this.id).value);
     });`;
-  document.head.appendChild(script1);
+  document.head.appendChild(script1);}
 }
 
 function createNewCard() {
@@ -101,13 +152,19 @@ function createNewCard() {
     setupCowinCard(i);
   } else if (choice === "notes") {
     setupNotesCardTextArea(i);
+  } else if (choice === "none"){
+    alert("Please Select Card Type")
+    return
   } // add other invokes in elif
   i = i + 1;
   localStorage.setItem("cardSerial", i); //new
 }
 
 // -------------------load up schedule start-----------------------
-
+if (localStorage.getItem("notesSerial") === null){
+  let obj432 = {"notes":[{"id":"null","notesSerialNull":"null","name": "Collection of Notes"}]}; //Important
+  localStorage.setItem("notesSerial", JSON.stringify(obj432));
+}
 // -------------------load up schedule end-----------------------
 
 // -----------------Event Listeners----------------------------------------
