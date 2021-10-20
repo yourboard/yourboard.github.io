@@ -284,8 +284,8 @@ input[type="checkbox"] {
   text-overflow: clip;
   width: 90%;
   margin-left: 10px;
-  height: 80%;
-  border: 1px solid #888;
+  height: 85%;
+  border: none;
   border-radius: 5px;
   padding: 7px;
 }
