@@ -1,64 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Your Board</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="manifest" href="assets/site.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<body>
+  <body>
     <nav class="noselect">
-        <div class="logo">My Dashboard</div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </label>
-        <ul>
-            <li><a class="active" href="#">Home</a></li>
-            <li><a href="#">Donate</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Feedback</a></li>
-        </ul>
+      <div class="logo">My Dashboard</div>
+      <input type="checkbox" id="click" />
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="#">Donate</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
     </nav>
-    <div class="content">
-        <div class="noselect" id="newBtnArea">
-            <span class="labelForNewBtn">Hey User, Click Here to create new card.</span>
-            <div class="select-style" style="width:200px;">
-                <select class="inside-saga" id="userCardOption">
-                    <option value="0">Select Your New card</option>
-                    <option value="cowinTracker">Cowin Tracker</option>
-                    <option value="stockTracker">Stock Price Tracker</option>
-                    <option value="notes">Notes</option>
-                    <option value="calendar">Calendar</option>
-                    <option value="spotify">Spotify Controller</option>
-                </select>
-
-            </div>
-            <button class="newBtn">+ Create New Card</button>
-
-        </div>
-        <div class="heading noselect">
-            Your Personal Dashboard
-            <div>This Webpage is Owned by Siddhesh Patil and is under development for Project.</div>
-            <div>Accessable By 1770 Community Only</div>
-        </div>
-        <div class="playground" id="mainArea">
-            Hello World
-        </div>
-
-        <div class="dummydiv">
-            Bye World
-        </div>
+    <div class="content"></div>
+    <div class="noselect" id="newBtnArea">
+      <span class="labelForNewBtn"
+        >Hey User, Click Here to create new card.</span
+      >
+      <div class="select-style" style="width: 200px">
+        <select class="inside-saga" id="userCardOption">
+          <option value="0">Select Your New card</option>
+          <option value="cowinTracker">Cowin Tracker</option>
+          <option value="stockTracker">Stock Price Tracker</option>
+          <option value="notes">Notes</option>
+          <option value="calendar">Calendar</option>
+          <option value="spotify">Spotify Controller</option>
+        </select>
+      </div>
+      <button class="newBtn" id="newCardBtn">+ Create New Card</button>
+    </div>
+    <div class="heading noselect">Your Personal Dashboard</div>
+    <div class="playground noselect" id="mainArea">
+      <div class="cardLayout">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro minima
+        perspiciatis ipsa deserunt ea, ullam eius, provident nihil ratione unde
+        doloremque neque explicabo vel fuga pariatur iste in aut recusandae?
+      </div>
+      <div class="cardLayout notesCard" id="notesCardId">
+        <h3 style="text-align: center">Notes</h3>
+        <br />
+        <textarea
+          placeholder="Write here something"
+          name=""
+          class="notesClass"
+          id="notesCardInput"
+        ></textarea>
+      </div>
     </div>
 
+    <div class="dummydiv">Bye World</div>
 
-</body>
-
+    <script src="js/app.js" id="hello"></script>
+  </body>
 </html>

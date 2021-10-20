@@ -1,0 +1,21 @@
+<div class="cardLayout">
+            <div class="cowinh3">
+                <h3>Cowin Tracker</h3><br>
+            </div>
+            <div class="pincode">
+                <label for="">Enter pincode - </label>
+                <input type="number" id="pincode1" class="pincodeAccept" maxlength="6">
+            </div><br>
+            <div class="date1">
+                <label>Select Date - </label>
+                <input type="date" id="date1">
+            </div><br>
+            <div class="searchBtnCowin">
+                <button class="newBtn">Track</button>
+
+            </div>
+            <br><br>
+            <div class="trackbox">
+                Searching.... <button id="killSwitch" class="newBtn">Stop</button>
+            </div>
+        </div>
