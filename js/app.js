@@ -74,17 +74,29 @@ function setupCowinCard(i) {
 //   console.log(`${hellloop}, ${haoe[hellloop]}`);
 // }
 
+
+
 function retriveNotes(){
   if (localStorage.getItem('notesSerial') != null){
-    let hellFucking = JSON.parse(localStorage.getItem("notesSerial"));
-    for (let killerSid = 0; killerSid < hellFucking.length; killerSid++){
-      if (hellFucking[killerSid] == 'name'){
-        continue
+    let reD = JSON.parse(localStorage.getItem('notesSerial'));
+    for (let bosdai= 1; bosdai< reD.notes.length - 1; bosdai++){
+      console.log(bosdai)
+      let yalgar = reD.notes[bosdai];
+      let hulu = yalgar.id;
+      if (hulu != null){
+      let content = reD.notes[bosdai].content;
+
+      let elem = document.createElement("div");
+      elem.setAttribute("class", "cardLayout");
+      elem.setAttribute(`id`, `card${hulu}`); // new
+      document.querySelector("div.playground").appendChild(elem);
+        setupNotesCardTextArea(hulu, true, content);
       }
-      
     }
   }
 }
+
+retriveNotes();
 
 
 // {
@@ -95,8 +107,9 @@ function retriveNotes(){
 //   }
 // }
 
-function setupNotesCardTextArea(i) {
-  {console.log(`I created New Notes Card ${i}`);
+function setupNotesCardTextArea(i, isRetrive, content) {
+  {
+    // console.log(`I created New Notes Card ${i}`);
   let script1 = document.createElement("script");
   // add event listener script here
   document.head.appendChild(script1);
@@ -104,7 +117,7 @@ function setupNotesCardTextArea(i) {
     `card${i}`
   ).innerHTML = `<h3 style="text-align: center;">Notes</h3>
     <br>
-    <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}"></textarea>`;
+    <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}">${content}</textarea>`;
   let fool = `textarea${i}`;
   // let foo = '${fool}'
   // script1.innerHTML =
@@ -121,7 +134,7 @@ function setupNotesCardTextArea(i) {
           }
         }
         if (!ulluBanaya){
-          objFuck["notes"].push({"id":${i},notesSerial${i}:"","content":""})
+          objFuck["notes"].push({"id":${i},notesSerial${i}:"","content":${content}})
         }
         for (let akad = 0; akad< objFuck.notes.length; akad++){
           let akadDikha = objFuck.notes[akad];
@@ -151,7 +164,7 @@ function createNewCard() {
   if (choice === "cowinTracker") {
     setupCowinCard(i);
   } else if (choice === "notes") {
-    setupNotesCardTextArea(i);
+    setupNotesCardTextArea(i, false, "hello");
   } else if (choice === "none"){
     alert("Please Select Card Type")
     return
