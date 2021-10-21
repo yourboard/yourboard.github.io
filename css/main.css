@@ -140,7 +140,7 @@ input[type="checkbox"] {
   border-radius: 5px;
   box-shadow: 1px 5px 5px rgb(46, 45, 45);
   overflow: hidden;
-  /* background: #ffffff url("img/icon-select.png") no-repeat 90% 50%; */
+  background: #ffffff ;
 }
 .select-style:hover {
   box-shadow: 0 0 2px 2px rgb(149, 139, 233);
@@ -290,3 +290,9 @@ input[type="checkbox"] {
   padding: 7px;
 }
 /* Notes Card Design===--------------------end--------------------- */
+.calendarLayout{
+  width: 280px !important;
+  height: 380px !important;
+  border: none !important;
+  border-radius: 5px;
+}

@@ -21,7 +21,12 @@ function scanVaccineByPin(pincode, date) {
   };
 }
 
-
+function setupCalendarCard(isNewCard) {
+  console.log("Calendar Card Was Created");
+  if (isNewCard){
+    
+  }
+}
 
 
 function startCowinTracker(i) {
@@ -79,13 +84,12 @@ function setupCowinCard(i) {
 function retriveNotes(){
   if (localStorage.getItem('notesSerial') != null){
     let reD = JSON.parse(localStorage.getItem('notesSerial'));
-    for (let bosdai= 1; bosdai< reD.notes.length - 1; bosdai++){
+    for (let bosdai= 0; bosdai< reD.notes.length - 1; bosdai++){
       console.log(bosdai)
       let yalgar = reD.notes[bosdai];
       let hulu = yalgar.id;
       if (hulu != null){
       let content = reD.notes[bosdai].content;
-
       let elem = document.createElement("div");
       elem.setAttribute("class", "cardLayout");
       elem.setAttribute(`id`, `card${hulu}`); // new
@@ -96,7 +100,7 @@ function retriveNotes(){
   }
 }
 
-retriveNotes();
+
 
 
 // {
@@ -148,8 +152,12 @@ function setupNotesCardTextArea(i, isRetrive, content) {
     });`;
   document.head.appendChild(script1);}
 }
-
 function createNewCard() {
+  let choice = document.getElementById("userCardOption").value;
+  if (choice == "none"){
+    alert("Please Select Card Type")
+    return
+  }
   if (localStorage.getItem("cardSerial") === null) {
     //new
     localStorage.setItem("cardSerial", "0"); //new
@@ -160,14 +168,13 @@ function createNewCard() {
   elem.setAttribute(`id`, `card${i}`); // new
   document.querySelector("div.playground").appendChild(elem);
   // new
-  let choice = document.getElementById("userCardOption").value;
+
   if (choice === "cowinTracker") {
     setupCowinCard(i);
   } else if (choice === "notes") {
     setupNotesCardTextArea(i, false, "hello");
-  } else if (choice === "none"){
-    alert("Please Select Card Type")
-    return
+  } else if (choice === "calendar") {
+    setupCalendarCard(true);
   } // add other invokes in elif
   i = i + 1;
   localStorage.setItem("cardSerial", i); //new
@@ -178,6 +185,7 @@ if (localStorage.getItem("notesSerial") === null){
   let obj432 = {"notes":[{"id":"null","notesSerialNull":"null","name": "Collection of Notes"}]}; //Important
   localStorage.setItem("notesSerial", JSON.stringify(obj432));
 }
+retriveNotes();
 // -------------------load up schedule end-----------------------
 
 // -----------------Event Listeners----------------------------------------
