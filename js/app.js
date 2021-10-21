@@ -24,7 +24,7 @@ function scanVaccineByPin(pincode, date) {
 function setupCalendarCard(isNewCard) {
   console.log("Calendar Card Was Created");
   if (isNewCard){
-    
+    //Registry for 
   }
 }
 
@@ -85,16 +85,18 @@ function retriveNotes(){
   if (localStorage.getItem('notesSerial') != null){
     let reD = JSON.parse(localStorage.getItem('notesSerial'));
     for (let bosdai= 0; bosdai< reD.notes.length - 1; bosdai++){
-      console.log(bosdai)
+      // console.log(bosdai)
       let yalgar = reD.notes[bosdai];
       let hulu = yalgar.id;
-      if (hulu != null){
+      if (hulu == 'null'){
+      console.log(hulu)
+      } else {
       let content = reD.notes[bosdai].content;
       let elem = document.createElement("div");
       elem.setAttribute("class", "cardLayout");
       elem.setAttribute(`id`, `card${hulu}`); // new
       document.querySelector("div.playground").appendChild(elem);
-        setupNotesCardTextArea(hulu, true, content);
+      setupNotesCardTextArea(hulu, true, content);
       }
     }
   }
