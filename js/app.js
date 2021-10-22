@@ -42,6 +42,29 @@ function startCowinTracker(i) {
   // console.log(pincode);
   // console.log(date);
 }
+function closeNoteCard(id, i) {
+  let reD = JSON.parse(localStorage.getItem("notesSerial"));
+  for (let bosdai = 0; bosdai < reD.notes.length; bosdai++) {
+    // console.log(bosdai)
+    let yalgar = reD.notes[bosdai];
+    let hulu = yalgar.id;
+    if (hulu == "null") {
+      // console.log(hulu);
+    } else {
+      if (hulu == `${i}`) {
+        reD.notes.splice(bosdai, bosdai);
+        localStorage.setItem("notesSerial", JSON.stringify(reD));
+      }
+      // let content = reD.notes[bosdai].content;
+      // let elem = document.createElement("div");
+      // elem.setAttribute("class", "cardLayout");
+      // elem.setAttribute(`id`, `card${hulu}`); // new
+      // document.querySelector("div.playground").appendChild(elem);
+      // setupNotesCardTextArea(hulu, true, content);
+    }
+  }
+  id.remove();
+}
 function setupCowinCard(i) {
   // let mainArea = document.getElementById('mainArea');
   // let elem = document.createElement('div');
@@ -114,7 +137,7 @@ function setupNotesCardTextArea(i, isRetrive, content) {
     document.head.appendChild(script1);
     document.getElementById(
       `card${i}`
-    ).innerHTML = `<h3 style="text-align: center;">Notes</h3>
+    ).innerHTML = `<span style="font-weight: bolder; font-size: 22px; margin-left:100px">Notes<span style="margin-left:50px"><button onclick="closeNoteCard(card${i}, ${i})">Close</button></span></span>
     <br>
     <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}">${content}</textarea>`;
     let fool = `textarea${i}`;
@@ -133,7 +156,7 @@ function setupNotesCardTextArea(i, isRetrive, content) {
           }
         }
         if (!ulluBanaya){
-          objFuck["notes"].push({"id":${i},notesSerial${i}:"","content":${content}})
+          objFuck["notes"].push({"id":${i},notesSerial${i}:"","content":"${content}"})
         }
         for (let akad = 0; akad< objFuck.notes.length; akad++){
           let akadDikha = objFuck.notes[akad];
