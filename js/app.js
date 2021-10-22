@@ -23,11 +23,10 @@ function scanVaccineByPin(pincode, date) {
 
 function setupCalendarCard(isNewCard) {
   console.log("Calendar Card Was Created");
-  if (isNewCard){
-    //Registry for 
+  if (isNewCard) {
+    //Registry for
   }
 }
-
 
 function startCowinTracker(i) {
   let p = document.getElementById(`pincode${i}`);
@@ -73,37 +72,31 @@ function setupCowinCard(i) {
   // document.getElementsByTagName('body').appendChild(newScript);
 }
 
-
 // let haoe = {hell: 'hihih', hello:'siddhesh'};
 // for (let hellloop in haoe){
 //   console.log(`${hellloop}, ${haoe[hellloop]}`);
 // }
 
-
-
-function retriveNotes(){
-  if (localStorage.getItem('notesSerial') != null){
-    let reD = JSON.parse(localStorage.getItem('notesSerial'));
-    for (let bosdai= 0; bosdai< reD.notes.length - 1; bosdai++){
+function retriveNotes() {
+  if (localStorage.getItem("notesSerial") != null) {
+    let reD = JSON.parse(localStorage.getItem("notesSerial"));
+    for (let bosdai = 0; bosdai < reD.notes.length; bosdai++) {
       // console.log(bosdai)
       let yalgar = reD.notes[bosdai];
       let hulu = yalgar.id;
-      if (hulu == 'null'){
-      console.log(hulu)
+      if (hulu == "null") {
+        console.log(hulu);
       } else {
-      let content = reD.notes[bosdai].content;
-      let elem = document.createElement("div");
-      elem.setAttribute("class", "cardLayout");
-      elem.setAttribute(`id`, `card${hulu}`); // new
-      document.querySelector("div.playground").appendChild(elem);
-      setupNotesCardTextArea(hulu, true, content);
+        let content = reD.notes[bosdai].content;
+        let elem = document.createElement("div");
+        elem.setAttribute("class", "cardLayout");
+        elem.setAttribute(`id`, `card${hulu}`); // new
+        document.querySelector("div.playground").appendChild(elem);
+        setupNotesCardTextArea(hulu, true, content);
       }
     }
   }
 }
-
-
-
 
 // {
 //   let obj = {notes:[{"name": "Collection of Notes"}, {"name": "sid"}, {"name":"world"}]};
@@ -116,19 +109,19 @@ function retriveNotes(){
 function setupNotesCardTextArea(i, isRetrive, content) {
   {
     // console.log(`I created New Notes Card ${i}`);
-  let script1 = document.createElement("script");
-  // add event listener script here
-  document.head.appendChild(script1);
-  document.getElementById(
-    `card${i}`
-  ).innerHTML = `<h3 style="text-align: center;">Notes</h3>
+    let script1 = document.createElement("script");
+    // add event listener script here
+    document.head.appendChild(script1);
+    document.getElementById(
+      `card${i}`
+    ).innerHTML = `<h3 style="text-align: center;">Notes</h3>
     <br>
     <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}">${content}</textarea>`;
-  let fool = `textarea${i}`;
-  // let foo = '${fool}'
-  // script1.innerHTML =
+    let fool = `textarea${i}`;
+    // let foo = '${fool}'
+    // script1.innerHTML =
 
-  script1.innerHTML = `let textarea${i} = document.getElementById('notesCardInput${i}');
+    script1.innerHTML = `let textarea${i} = document.getElementById('notesCardInput${i}');
     document.getElementById('notesCardInput${i}').addEventListener('input', function getText() {
         let objFuck = JSON.parse(localStorage.getItem('notesSerial'));
         let hell1770 = document.getElementById(this.id).value;
@@ -152,13 +145,14 @@ function setupNotesCardTextArea(i, isRetrive, content) {
         localStorage.setItem('notesSerial', JSON.stringify(objFuck));
         // localStorage.setItem('notesCardInput${i}', document.getElementById(this.id).value);
     });`;
-  document.head.appendChild(script1);}
+    document.head.appendChild(script1);
+  }
 }
 function createNewCard() {
   let choice = document.getElementById("userCardOption").value;
-  if (choice == "none"){
-    alert("Please Select Card Type")
-    return
+  if (choice == "none") {
+    alert("Please Select Card Type");
+    return;
   }
   if (localStorage.getItem("cardSerial") === null) {
     //new
@@ -183,8 +177,12 @@ function createNewCard() {
 }
 
 // -------------------load up schedule start-----------------------
-if (localStorage.getItem("notesSerial") === null){
-  let obj432 = {"notes":[{"id":"null","notesSerialNull":"null","name": "Collection of Notes"}]}; //Important
+if (localStorage.getItem("notesSerial") === null) {
+  let obj432 = {
+    notes: [
+      { id: "null", notesSerialNull: "null", name: "Collection of Notes" },
+    ],
+  }; //Important
   localStorage.setItem("notesSerial", JSON.stringify(obj432));
 }
 retriveNotes();
