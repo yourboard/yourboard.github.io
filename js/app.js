@@ -135,9 +135,13 @@ function setupNotesCardTextArea(i, isRetrive, content) {
     let script1 = document.createElement("script");
     // add event listener script here
     document.head.appendChild(script1);
+    let content1 = "";
+    if (content == "hello") {
+      content = content1;
+    }
     document.getElementById(
       `card${i}`
-    ).innerHTML = `<span style="font-weight: bolder; font-size: 22px; margin-left:100px">Notes<span style="margin-left:50px"><button onclick="closeNoteCard(card${i}, ${i})">Close</button></span></span>
+    ).innerHTML = `<span style="font-weight: bolder; font-size: 22px; margin-left:100px">Notes<span style="margin-left:50px"><button class="cardCloseBtn" onclick="closeNoteCard(card${i}, ${i})">Close</button></span></span>
     <br>
     <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}">${content}</textarea>`;
     let fool = `textarea${i}`;

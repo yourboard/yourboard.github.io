@@ -295,3 +295,12 @@ input[type="checkbox"] {
   border: none !important;
   border-radius: 5px;
 }
+
+.cardCloseBtn {
+  border: none;
+  background-color: lightcyan;
+  margin: 5px;
+}
+.cardCloseBtn:hover {
+  box-shadow: 0 0 2px 2px rgb(149, 139, 233);
+}
