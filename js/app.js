@@ -1,4 +1,5 @@
 // scanVaccineByPin returns bool if it found vaccine
+
 function scanVaccineByPin(pincode, date) {
   //date = dd-mm-yyyy
   let url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pincode}&date=${date}`;
@@ -20,6 +21,13 @@ function scanVaccineByPin(pincode, date) {
   };
 }
 
+function setupCalendarCard(isNewCard) {
+  console.log("Calendar Card Was Created");
+  if (isNewCard) {
+    //Registry for
+  }
+}
+
 function startCowinTracker(i) {
   let p = document.getElementById(`pincode${i}`);
   let d = document.getElementById(`cowinDate${i}`); //yyyy-mm-dd
@@ -33,6 +41,29 @@ function startCowinTracker(i) {
 
   // console.log(pincode);
   // console.log(date);
+}
+function closeNoteCard(id, i) {
+  let reD = JSON.parse(localStorage.getItem("notesSerial"));
+  for (let bosdai = 0; bosdai < reD.notes.length; bosdai++) {
+    // console.log(bosdai)
+    let yalgar = reD.notes[bosdai];
+    let hulu = yalgar.id;
+    if (hulu == "null") {
+      // console.log(hulu);
+    } else {
+      if (hulu == `${i}`) {
+        reD.notes.splice(bosdai, bosdai);
+        localStorage.setItem("notesSerial", JSON.stringify(reD));
+      }
+      // let content = reD.notes[bosdai].content;
+      // let elem = document.createElement("div");
+      // elem.setAttribute("class", "cardLayout");
+      // elem.setAttribute(`id`, `card${hulu}`); // new
+      // document.querySelector("div.playground").appendChild(elem);
+      // setupNotesCardTextArea(hulu, true, content);
+    }
+  }
+  id.remove();
 }
 function setupCowinCard(i) {
   // let mainArea = document.getElementById('mainArea');
@@ -64,28 +95,92 @@ function setupCowinCard(i) {
   // document.getElementsByTagName('body').appendChild(newScript);
 }
 
-function setupNotesCardTextArea(i) {
-  console.log(`I created New Notes Card ${i}`);
-  let script1 = document.createElement("script");
-  // add event listener script here
-  document.head.appendChild(script1);
-  document.getElementById(
-    `card${i}`
-  ).innerHTML = `<h3 style="text-align: center;">Notes</h3>
-    <br>
-    <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}"></textarea>`;
-  let fool = `textarea${i}`;
-  // let foo = '${fool}'
+// let haoe = {hell: 'hihih', hello:'siddhesh'};
+// for (let hellloop in haoe){
+//   console.log(`${hellloop}, ${haoe[hellloop]}`);
+// }
 
-  // script1.innerHTML =
-  script1.innerHTML = `let textarea${i} = document.getElementById('notesCardInput${i}');
-    document.getElementById('notesCardInput${i}').addEventListener('input', function getText() {
-        localStorage.setItem('notesCardInput${i}', document.getElementById(this.id).value);
-    });`;
-  document.head.appendChild(script1);
+function retriveNotes() {
+  if (localStorage.getItem("notesSerial") != null) {
+    let reD = JSON.parse(localStorage.getItem("notesSerial"));
+    for (let bosdai = 0; bosdai < reD.notes.length; bosdai++) {
+      // console.log(bosdai)
+      let yalgar = reD.notes[bosdai];
+      let hulu = yalgar.id;
+      if (hulu == "null") {
+        console.log(hulu);
+      } else {
+        let content = reD.notes[bosdai].content;
+        let elem = document.createElement("div");
+        elem.setAttribute("class", "cardLayout");
+        elem.setAttribute(`id`, `card${hulu}`); // new
+        document.querySelector("div.playground").appendChild(elem);
+        setupNotesCardTextArea(hulu, true, content);
+      }
+    }
+  }
 }
 
+// {
+//   let obj = {notes:[{"name": "Collection of Notes"}, {"name": "sid"}, {"name":"world"}]};
+//   for (let i = 0; i < obj.notes.length; i++){
+//       let see = obj.notes[i];
+//       console.log(see.name)
+//   }
+// }
+
+function setupNotesCardTextArea(i, isRetrive, content) {
+  {
+    // console.log(`I created New Notes Card ${i}`);
+    let script1 = document.createElement("script");
+    // add event listener script here
+    document.head.appendChild(script1);
+    let content1 = "";
+    if (content == "hello") {
+      content = content1;
+    }
+    document.getElementById(
+      `card${i}`
+    ).innerHTML = `<span style="font-weight: bolder; font-size: 22px; margin-left:100px">Notes<span style="margin-left:50px"><button class="cardCloseBtn" onclick="closeNoteCard(card${i}, ${i})">Close</button></span></span>
+    <br>
+    <textarea placeholder="Write here something" name="" class="notesClass" id="notesCardInput${i}">${content}</textarea>`;
+    let fool = `textarea${i}`;
+    // let foo = '${fool}'
+    // script1.innerHTML =
+
+    script1.innerHTML = `let textarea${i} = document.getElementById('notesCardInput${i}');
+    document.getElementById('notesCardInput${i}').addEventListener('input', function getText() {
+        let objFuck = JSON.parse(localStorage.getItem('notesSerial'));
+        let hell1770 = document.getElementById(this.id).value;
+        let ulluBanaya = false;
+        for (let jhalak = 0; jhalak < objFuck.notes.length; jhalak++){
+          let jhalakDikhlaja = objFuck.notes[jhalak];
+          if (jhalakDikhlaja.id == ${i}){
+            ulluBanaya = true;
+          }
+        }
+        if (!ulluBanaya){
+          objFuck["notes"].push({"id":${i},notesSerial${i}:"","content":"${content}"})
+        }
+        for (let akad = 0; akad< objFuck.notes.length; akad++){
+          let akadDikha = objFuck.notes[akad];
+          if (akadDikha.id == ${i}){
+            objFuck.notes[akad].content = hell1770;
+          }
+        }
+        objFuck.notes.notesSerial${i} = hell1770;
+        localStorage.setItem('notesSerial', JSON.stringify(objFuck));
+        // localStorage.setItem('notesCardInput${i}', document.getElementById(this.id).value);
+    });`;
+    document.head.appendChild(script1);
+  }
+}
 function createNewCard() {
+  let choice = document.getElementById("userCardOption").value;
+  if (choice == "none") {
+    alert("Please Select Card Type");
+    return;
+  }
   if (localStorage.getItem("cardSerial") === null) {
     //new
     localStorage.setItem("cardSerial", "0"); //new
@@ -96,18 +191,28 @@ function createNewCard() {
   elem.setAttribute(`id`, `card${i}`); // new
   document.querySelector("div.playground").appendChild(elem);
   // new
-  let choice = document.getElementById("userCardOption").value;
+
   if (choice === "cowinTracker") {
     setupCowinCard(i);
   } else if (choice === "notes") {
-    setupNotesCardTextArea(i);
+    setupNotesCardTextArea(i, false, "hello");
+  } else if (choice === "calendar") {
+    setupCalendarCard(true);
   } // add other invokes in elif
   i = i + 1;
   localStorage.setItem("cardSerial", i); //new
 }
 
 // -------------------load up schedule start-----------------------
-
+if (localStorage.getItem("notesSerial") === null) {
+  let obj432 = {
+    notes: [
+      { id: "null", notesSerialNull: "null", name: "Collection of Notes" },
+    ],
+  }; //Important
+  localStorage.setItem("notesSerial", JSON.stringify(obj432));
+}
+retriveNotes();
 // -------------------load up schedule end-----------------------
 
 // -----------------Event Listeners----------------------------------------
